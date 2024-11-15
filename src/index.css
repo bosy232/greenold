@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-cairo text-gray-800;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-white hover:text-[#1abc9c] px-3 py-2 transition-all relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#1abc9c] after:transition-all hover:after:w-full;
+  }
+
+  .btn-primary {
+    @apply bg-[#1abc9c] text-white px-6 py-3 rounded-lg hover:bg-[#2C3E50] transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#1abc9c] focus:ring-opacity-50 shadow-lg hover:shadow-xl;
+  }
+
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 border border-gray-100;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-[#1abc9c] focus:border-[#1abc9c] transition-colors;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-[#2C3E50] text-center mb-12;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  .nav-link::after {
+    @apply right-0 left-auto;
+  }
+}
